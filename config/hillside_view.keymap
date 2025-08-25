@@ -1,64 +1,82 @@
 #include "common_keymap.dtsi"
 
 / {
-  keymap {
-    compatible = "zmk,keymap";
+    combos {
+        compatible = "zmk,combos";
 
-    default_layer {
-      display-name = "DEFAULT";
-      bindings = <
-   __________DEF_L1__________                          __________DEF_R1__________
-   __________DEF_L2__________                          __________DEF_R2__________
-   __________DEF_L3__________                          __________DEF_R3__________
-                            &trans                    &trans
-   _________THUMB_DEF_L_______                         _________THUMB_DEF_R_______
-              >;
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-      };
+        studio_unlock {
+            bindings = <&studio_unlock>;
+            key-positions = <0 1>;
+        };
+        to_bt_control {
+            bindings = <&sl 3>;
+            key-positions = <54 55>;
+        };
 
-    number_layer {
-      display-name = "NUMBER";
-      bindings = <
-   __________NUM_L1__________                          __________NUM_R1__________
-   __________NUM_L2__________                          __________NUM_R2__________
-   __________NUM_L3__________                          __________NUM_R3__________
-                            &trans                    &trans
-   _________THUMB_NUM_L_______                         _________THUMB_NUM_R_______
-              >;
-      };
+        bootloader_left {
+            bindings = <&bootloader>;
+            key-positions = <40 0 1>;
+        };
 
-    symbol_layer {
-      display-name = "SYMBOL";
-      bindings = <
-   __________SYM_L1__________                          __________SYM_R1__________
-   __________SYM_L2__________                          __________SYM_R2__________
-   __________SYM_L3__________                          __________SYM_R3__________
-                            &trans                    &trans
-   _________THUMB_SYM_L_______                         _________THUMB_SYM_R_______
-              >;
-      };
+        bootloader_right {
+            bindings = <&bootloader>;
+            key-positions = <2 3 51>;
+        };
+    };
 
-    navigation_layer {
-      display-name = "NAVIGATION";
-      bindings = <
-   __________NAV_L1__________                          __________NAV_R1__________
-   __________NAV_L2__________                          __________NAV_R2__________
-   __________NAV_L3__________                          __________NAV_R3__________
-                            &trans                    &trans
-   _________THUMB_NAV_L_______                         _________THUMB_NAV_R_______
-              >;
-      };
+	chosen {
+		zephyr,console = &cdc_acm_uart;
+	};
 
-    settings_layer {
-      display-name = "SETTINGS";
-      bindings = <
-   __________SET_L1__________                          __________SET_R1__________
-   __________SET_L2__________                          __________SET_R2__________
-   __________SET_L3__________                          __________SET_R3__________
-                            &trans                    &trans
-   _________THUMB_SET_L_______                         _________THUMB_SET_R_______
-              >;
-      };
+    keymap {
+        compatible = "zmk,keymap";
 
-   };  
+        default_layer {
+            bindings = <
+&kp ESC         &kp LEFT_GUI                                                                                      &mo 3     &kp BACKSPACE
+&kp TAB         &kp N1        &kp N2  &kp N3            &kp N4     &kp N5  &kp N6  &kp N7     &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp BACKSLASH   &kp Q         &kp W   &kp E             &kp R      &kp T   &kp Y   &kp U      &kp I      &kp O    &kp P     &kp EQUAL
+&kp LEFT_SHIFT  &kp A         &kp S   &kp D             &kp F      &kp G   &kp H   &kp J      &kp K      &kp L    &kp SEMI  &kp FSLH
+&kp LCTRL       &kp Z         &kp X   &kp C             &kp V      &kp B   &kp N   &kp M      &kp COMMA  &kp DOT  &kp APOS  &kp RALT
+                                      &kp K_PLAY_PAUSE  &kp SPACE  &mo 1   &mo 2   &kp ENTER  &kp RCTRL
+            >;
+
+            sensor-bindings =<&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        functions {
+            bindings = <
+&trans  &trans                                                                             &trans   &trans
+&trans  &kp F1    &kp F2        &kp F3     &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&trans  &trans    &kp UP_ARROW  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans   &kp F12
+&trans  &kp LEFT  &kp DOWN      &kp RIGHT  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans
+&trans  &trans    &trans        &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans
+                                &trans     &trans  &trans  &trans  &trans  &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
+        };
+
+        raise {
+            bindings = <
+&trans  &trans                                                                                               &trans             &trans
+&trans  &trans          &trans          &trans     &trans  &trans  &trans  &trans  &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans
+&trans  &trans          &kp UP_ARROW    &trans     &trans  &trans  &trans  &trans  &trans  &trans            &trans             &trans
+&trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &trans  &trans  &trans  &trans  &trans  &trans            &trans             &trans
+&trans  &trans          &trans          &trans     &trans  &trans  &trans  &trans  &trans  &trans            &trans             &trans
+                                        &trans     &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        bt_control {
+            bindings = <
+&bt BT_CLR_ALL  &trans                                                                                                &trans  &trans
+&trans          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+                                            &trans        &trans        &trans        &trans  &trans  &trans
+            >;
+        };
+    };
 };
