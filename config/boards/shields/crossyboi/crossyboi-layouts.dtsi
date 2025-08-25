@@ -6,7 +6,7 @@
         display-name = "LAYOUT_default";
 
         kscan = <&kscan0>;
-        transform = <&matrix_transform0>;
+        //transform = <&matrix_transform0>;
 
 
         keys  //                     w   h    x    y     rot    rx    ry
