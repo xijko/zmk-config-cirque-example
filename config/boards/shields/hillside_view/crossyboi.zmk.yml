@@ -1,8 +1,8 @@
 file_format: "1"
-id: hillside_view
-name: Hillside View
+id: crossyboi
+name: CrossyBoi
 type: shield
-url: https://github.com/wannabecoffeenerd/hillside
+url: https://github.com/xijko/zmk-config-cirque-example
 requires:
   - pro_micro
 exposes:
@@ -12,5 +12,5 @@ features:
   - display
   - underglow
 siblings:
-  - hillside_view_left
-  - hillside_view_right
+  - crossyboi_left
+  - crossyboi_right
