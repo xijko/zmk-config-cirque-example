@@ -1,0 +1,16 @@
+file_format: "1"
+id: crossyboi
+name: CrossyBoi
+type: shield
+url: https://github.com/xijko/zmk-config-cirque-example
+requires:
+  - pro_micro
+exposes:
+  - nice_view_header
+features:
+  - keys
+  - display
+  - underglow
+siblings:
+  - crossyboi_left
+  - crossyboi_right
