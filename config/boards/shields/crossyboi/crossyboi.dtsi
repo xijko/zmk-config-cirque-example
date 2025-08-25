@@ -143,13 +143,13 @@ RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)                                       RC
   led_strip: ws2812@0 {
     compatible = "worldsemi,ws2812-spi";
 
-    /* SPI */
-    /* ignored, but necessary for SPI bindings */
+    // SPI
+    // ignored, but necessary for SPI bindings
     reg = <0>;
     spi-max-frequency = <4000000>;
 
-    /* WS2812 */
-    /* arbitrary; change at will */
+    // WS2812
+    // arbitrary; change at will
     chain-length = <4>; 
     spi-one-frame = <0x70>;
     spi-zero-frame = <0x40>;
