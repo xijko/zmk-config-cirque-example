@@ -7,8 +7,6 @@
 
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors/mouse_keys.dtsi>
-#include "boards/shields/crossyboi/crossyboi-layouts.dtsi"
-
 
 / {
     combos {
