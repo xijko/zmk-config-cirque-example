@@ -17,7 +17,7 @@ include:
     shield: crossyboi_left
 #    snippet: studio-rpc-usb-uart
     snippet: zmk-usb-logging
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
+#    cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: nice_nano_v2
     shield: crossyboi_right
   - board: nice_nano_v2
